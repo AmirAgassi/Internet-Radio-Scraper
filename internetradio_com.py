@@ -13,12 +13,12 @@ genres = []
 pls = []
 mtu = []
 
-query = input("Search URL: ")
+query = input("Search Query: ")
 
 
 def downloadEntirePage():
     threadse = []
-    resp = requests.get(query)  # 'https://www.internet-radio.com/search/?radio=' + query + '#')
+    resp = requests.get('https://www.internet-radio.com/search/?radio=' + query + '#') 
     soup = BeautifulSoup(resp.content, 'html.parser')
 
     for item in soup.find_all('tr'):
@@ -68,9 +68,9 @@ name = input("Program has completed. File name:")
 # input("Program has completed. File name:")
 PATH = './' + name + ".txt"
 while os.path.isfile(PATH) and os.access(PATH, os.R_OK):
-	print("Invalid filename. File already exists.")
-	name = input("File name:")
-	PATH = './' + name + ".txt"
+    print("Invalid filename. File already exists.")
+    name = input("File name:")
+    PATH = './' + name + ".txt"
 
 f = open(name + ".txt", "a")
 
